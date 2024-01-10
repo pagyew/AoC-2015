@@ -8,13 +8,14 @@ const cookie = 'session=53616c7465645f5f1270f005cb04451d01dffbe050a263e428b88170
 ;(async () => {
   const res = await fetch(`https://adventofcode.com/2015/day/${day}/input`, { headers: { cookie } })
   const input = await res.text()
+  const pday = day.padStart(2, 0)
 
-  writeFileSync(`${day}.txt`, input)
+  writeFileSync(`${pday}/${day}.txt`, input)
   console.log(`${day}.txt written`);
 
-  copyFileSync('template.js', `${day}.js`)
+  copyFileSync('template.js', `${pday}/${day}.js`)
   console.log(`${day}.js copied`);
 
-  execSync(`code ${day}.js`)
+  execSync(`code ${pday}/${day}.js`)
   console.log(`${day}.js opened`);
 })()
