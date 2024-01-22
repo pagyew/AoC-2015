@@ -3,7 +3,7 @@ const { basename } = require('node:path')
 const { createHash } = require('node:crypto')
 
 const day = basename(__filename, '.js')
-const input = readFileSync(`${day}.txt`, 'utf8').trim()
+const input = readFileSync(__dirname + `/${day}.txt`, 'utf8').trim()
 
 const n = input.length
 

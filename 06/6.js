@@ -2,7 +2,7 @@ const { readFileSync } = require('node:fs')
 const { basename } = require('node:path')
 
 const day = basename(__filename, '.js')
-const input = readFileSync(`${day}.txt`, 'utf8').trim()
+const input = readFileSync(__dirname + `/${day}.txt`, 'utf8').trim()
 const regex = /(.+?) (\d{1,3},\d{1,3}).+?(\d{1,3},\d{1,3})/gi
 const instructions = input
   .split('\n')
